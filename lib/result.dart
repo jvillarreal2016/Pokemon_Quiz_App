@@ -22,22 +22,33 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          Text(
-            resultPhrase,
-            style: TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.all(15),
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Text(
+              resultPhrase,
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          ElevatedButton(
-            child: Text('Restart Quiz '), 
-            onPressed: resetHandler,
-          )
-        ],
+            Text(
+              '$resultScore %',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            ElevatedButton(
+              child: Text('Restart Quiz '),
+              onPressed: resetHandler,
+            )
+          ],
+        ),
       ),
     );
   }
