@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
+
+  //variables
   final int resultScore;
   final VoidCallback resetHandler;
 
+  //result constructor
   Result(this.resultScore, this.resetHandler);
 
+  //logic for the result phrase
   String get resultPhrase {
     var resultText = 'You did it!';
     if (resultScore <= 50) {
@@ -29,7 +33,7 @@ class Result extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              resultPhrase,
+              resultPhrase, //display result phrase
               style: TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
@@ -37,14 +41,14 @@ class Result extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Text(
-              '$resultScore %',
+              '$resultScore %', //display quiz score
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             ElevatedButton(
-              child: Text('Restart Quiz '),
+              child: Text('Restart Quiz '), //restart quiz button
               onPressed: resetHandler,
             )
           ],

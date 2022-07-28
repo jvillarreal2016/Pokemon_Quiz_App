@@ -15,6 +15,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  //List of questions as Maps with String Object pairs
   final _questions = const [
     {
       'questionText':
@@ -113,9 +115,12 @@ class _MyAppState extends State<MyApp> {
       ],
     },
   ];
+
+  //variables
   var _questionIndex = 0;
   var _totalScore = 0;
 
+  //function to reset quiz and variables
   void _resetQuiz() {
     setState(() {
       _questionIndex = 0;
@@ -123,6 +128,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  //function to increment score and questionIndex
   void _answerQuestion(int score) {
     _totalScore += score;
 
@@ -138,12 +144,14 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Pokemon Quiz App'),
         ),
-        body: _questionIndex < _questions.length
+          body: _questionIndex < _questions.length
+          //shows quiz questions and answers as long as there are questions remaining
             ? Quiz(
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
+            //else shows results screen
             : Result(_totalScore, _resetQuiz),
       ),
     );

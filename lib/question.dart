@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Question extends StatelessWidget {
+  //variables
   final String questionText;
 
+  //Question constructor
   Question(this.questionText);
 
   @override
